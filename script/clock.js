@@ -1,0 +1,8 @@
+const pclock = document.getElementById("pclock");
+
+setInterval(() => {
+  let d = new Date();
+  let hour = String(d.getHours()).padStart(2, "0");
+  let minute = String(d.getMinutes()).padStart(2, "0");
+  pclock.innerText = hour + ":" + minute;
+}, 1000);
