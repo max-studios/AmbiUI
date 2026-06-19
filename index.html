@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AmbiUI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="firstsetup">
+      <label for="inpname">Please enter your name:</label>
+      <input id="inpname" type="text" placeholder="Enter your name" />
+      <button id="btnsubmit">Submit</button>
+    </div>
+
+    <div class="greeting">
+      <p id="pgreeting"></p>
+    </div>
+
+    <div class="weblinks">
+      <div class="setup_slot" style="display: none">
+        <input
+          type="text"
+          id="inp_slot_text"
+          placeholder="Enter name for slot"
+        />
+        <input type="url" id="inp_slot_url" placeholder="Enter URL for slot" />
+        <button id="btn_save_slot">Save</button>
+      </div>
+
+      <div class="btn_slots">
+        <div class="slot_row">
+          <button id="slot_1">Slot 1</button>
+          <button id="rm_slot_1">✕</button>
+        </div>
+
+        <div class="slot_row">
+          <button id="slot_2">Slot 2</button>
+          <button id="rm_slot_2">✕</button>
+        </div>
+
+        <div class="slot_row">
+          <button id="slot_3">Slot 3</button>
+          <button id="rm_slot_3">✕</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="loader.js"></script>
+    <script src="greeting.js"></script>
+    <script src="webslots.js"></script>
+  </body>
+</html>
