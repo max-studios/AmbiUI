@@ -13,6 +13,13 @@
 
   --danger: #ef4444;
   --danger-hover: #dc2626;
+
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+
+  --shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 * {
@@ -23,46 +30,50 @@
 
 body {
   min-height: 100vh;
-  font-family:
-    Inter,
-    Segoe UI,
-    sans-serif;
-  background: radial-gradient(circle at top, #1e3a8a, #0f172a 60%);
-  color: var(--text);
+  padding: 60px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 20px;
+  font-family: Inter, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #1e3a8a, var(--bg) 60%);
 }
 
-.greeting {
+.greeting,
+.headline {
   margin-bottom: 40px;
 }
 
-#pgreeting {
+#pgreeting,
+#pheadline {
+  text-align: center;
   font-size: 3rem;
   font-weight: 700;
-  text-align: center;
   letter-spacing: -1px;
 }
 
 .firstsetup,
-.weblinks {
+.weblinks,
+.settings {
   width: 100%;
   max-width: 750px;
-  background: var(--card);
-  backdrop-filter: blur(15px);
-  border: 1px solid var(--border);
-  border-radius: 24px;
   padding: 30px;
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
 }
 
 .firstsetup {
   display: none;
   margin-bottom: 25px;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .firstsetup label {
@@ -75,21 +86,24 @@ body {
   display: none;
   margin-bottom: 25px;
   padding: 20px;
-  background: rgba(15, 23, 42, 0.6);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.6);
 }
 
 input[type="text"],
 input[type="url"] {
   width: 100%;
-  padding: 15px 18px;
   margin-bottom: 12px;
+  padding: 15px 18px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   background: var(--input);
   color: var(--text);
   font-size: 1rem;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 input:focus {
@@ -101,23 +115,59 @@ input:focus {
 button {
   border: none;
   cursor: pointer;
-  transition: 0.2s ease;
+  font-size: 1rem;
   font-weight: 600;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
 }
 
 #btnsubmit,
 #btn_save_slot {
   width: 100%;
   padding: 15px;
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   background: var(--accent);
-  color: white;
-  font-size: 1rem;
+  color: #fff;
 }
 
 #btnsubmit:hover,
 #btn_save_slot:hover {
   background: var(--accent-hover);
+}
+
+#btn_back {
+  width: 100%;
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+
+#btn_back:hover,
+#btn_cancel_delete:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn_delete_all,
+#btn_confirm_delete {
+  width: 100%;
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  color: #fff;
+}
+
+.btn_delete_all {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.btn_delete_all:hover,
+#btn_confirm_delete:hover {
+  background: var(--danger);
+  color: #fff;
 }
 
 .btn_slots {
@@ -134,25 +184,25 @@ button {
 .slot_row button:first-child {
   flex: 1;
   height: 70px;
-  border-radius: 18px;
+  padding: 0 24px;
+  text-align: left;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
   background: rgba(255, 255, 255, 0.04);
   color: var(--text);
   font-size: 1.05rem;
-  text-align: left;
-  padding: 0 24px;
-  border: 1px solid transparent;
 }
 
 .slot_row button:first-child:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .slot_row button:last-child {
   width: 70px;
   height: 70px;
-  border-radius: 18px;
+  border-radius: var(--radius-md);
   background: rgba(239, 68, 68, 0.15);
   color: #f87171;
   font-size: 1.4rem;
@@ -160,16 +210,86 @@ button {
 
 .slot_row button:last-child:hover {
   background: var(--danger);
-  color: white;
+  color: #fff;
+}
+
+.footer {
+  margin-top: 30px;
+}
+
+.footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer a:hover {
+  color: var(--text);
+}
+
+.confirm {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(20px);
+}
+
+.confirm::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  max-width: 500px;
+  height: 320px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: var(--card);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.confirm p {
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.15rem;
+}
+
+#btn_cancel_delete,
+#btn_confirm_delete {
+  width: 100%;
+  max-width: 440px;
+}
+
+#btn_cancel_delete {
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+
+#btn_confirm_delete {
+  background: var(--danger);
 }
 
 @media (max-width: 700px) {
-  #pgreeting {
+  #pgreeting,
+  #pheadline {
     font-size: 2rem;
   }
 
+  .firstsetup,
   .weblinks,
-  .firstsetup {
+  .settings {
     padding: 20px;
   }
 
@@ -181,5 +301,10 @@ button {
   .slot_row button:last-child {
     width: 60px;
     height: 60px;
+  }
+
+  .confirm::before {
+    width: calc(100% - 40px);
+    height: 340px;
   }
 }
