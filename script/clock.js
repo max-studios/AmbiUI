@@ -1,5 +1,7 @@
 const pclock = document.getElementById("pclock");
 
+pclock.innerText = "connecting...";
+
 setInterval(() => {
   let d = new Date();
   let hour = String(d.getHours()).padStart(2, "0");

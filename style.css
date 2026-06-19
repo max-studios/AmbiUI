@@ -222,7 +222,24 @@ button:active {
   color: white;
 }
 
-#btn_back,
+#btn_back {
+  background: rgba(36, 79, 158, 0.801);
+}
+
+.btn {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border-radius: 16px;
+}
+
+#pclock {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
 .btn_delete_all {
   width: 100%;
   padding: 16px;
@@ -230,12 +247,7 @@ button:active {
   border-radius: 16px;
 }
 
-#btn_back {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text);
-}
-
-#btn_back:hover {
+.btn:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -318,6 +330,16 @@ button:active {
   height: 52px;
 
   border-radius: 14px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+#pfooter {
+  font-size: 0.9rem;
+  color: var(--text);
 }
 
 #btn_cancel_delete {
