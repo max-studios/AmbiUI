@@ -27,6 +27,8 @@ time.sleep(0.5)
 print("Made for Windows only")
 time.sleep(0.5)
 print("This installer will copy the current folder to Program Files and create a link to index.html")
+time.sleep(3)
+print("IMPORTANT: By proceeding, you accept personal responsibility for the use and security of the installer script.")
 print("")
 
 if not ctypes.windll.shell32.IsUserAnAdmin():
