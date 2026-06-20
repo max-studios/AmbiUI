@@ -5,8 +5,25 @@ const btnBack = document.getElementById("btn_back");
 const btnSave = document.getElementById("btnSave");
 const btnGitHub = document.getElementById("btn_github");
 
+const engine = document.getElementById("engine");
+const searchbar = document.querySelector(".searchbar");
+
 const colorLeft = document.getElementById("colorLeft");
 const colorRight = document.getElementById("colorRight");
+
+let searchEngine = localStorage.getItem("searchEngine");
+if (searchEngine == null) {
+  searchEngine = "google";
+  engine.value = "google";
+} else {
+  engine.value = searchEngine;
+}
+
+engine.addEventListener("change", function (e) {
+  searchEngine = engine.value;
+  localStorage.setItem("searchEngine", searchEngine);
+  location.reload();
+});
 
 if (localStorage.getItem("colorLeft") != null) {
   colorLeft.value = localStorage.getItem("colorLeft");
