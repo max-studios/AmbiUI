@@ -160,4 +160,3 @@ vite.config.ts.timestamp-*
 .vite/
 
 # own
-installer.py
