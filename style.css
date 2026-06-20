@@ -17,6 +17,9 @@
 
   --shadow:
     0 20px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.03);
+
+  --bg-radial-left: #4338ca;
+  --bg-radial-right: #2563eb;
 }
 
 * {
@@ -37,8 +40,16 @@ body {
   color: var(--text);
 
   background:
-    radial-gradient(circle at top left, #4338ca 0%, transparent 35%),
-    radial-gradient(circle at top right, #2563eb 0%, transparent 35%),
+    radial-gradient(
+      circle at top left,
+      var(--bg-radial-left) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at top right,
+      var(--bg-radial-right) 0%,
+      transparent 35%
+    ),
     linear-gradient(180deg, #050816 0%, #0f172a 100%);
 }
 

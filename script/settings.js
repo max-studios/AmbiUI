@@ -5,6 +5,38 @@ const btnBack = document.getElementById("btn_back");
 const btnSave = document.getElementById("btnSave");
 const btnGitHub = document.getElementById("btn_github");
 
+const colorLeft = document.getElementById("colorLeft");
+const colorRight = document.getElementById("colorRight");
+
+if (localStorage.getItem("colorLeft") != null) {
+  colorLeft.value = localStorage.getItem("colorLeft");
+}
+if (localStorage.getItem("colorRight") != null) {
+  colorRight.value = localStorage.getItem("colorRight");
+}
+
+document.documentElement.style.setProperty("--bg-radial-left", colorLeft.value);
+document.documentElement.style.setProperty(
+  "--bg-radial-right",
+  colorRight.value,
+);
+
+colorLeft.addEventListener("input", () => {
+  localStorage.setItem("colorLeft", colorLeft.value);
+  document.documentElement.style.setProperty(
+    "--bg-radial-left",
+    colorLeft.value,
+  );
+});
+
+colorRight.addEventListener("input", () => {
+  localStorage.setItem("colorRight", colorRight.value);
+  document.documentElement.style.setProperty(
+    "--bg-radial-right",
+    colorRight.value,
+  );
+});
+
 btnDeleteAll.addEventListener("click", () => {
   document.querySelector(".confirm").style.display = "flex";
 });
