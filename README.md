@@ -8,7 +8,7 @@ Get quick access to all the shortcuts you need, wrapped in a clean and modern de
 
 ### Installation (Windows only)
 
-1. Run `installer.py`. (comming soon)
+1. Run `installer.py`. (beta)
 2. After the installation is complete, copy the file path provided by the installer.
 3. Open your browser settings.
 4. Navigate to the startup settings (e.g., "On startup" or "Home page").

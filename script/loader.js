@@ -39,8 +39,28 @@ if (searchEngine == "google") {
   searchbar.innerHTML = `<form id="searchForm" action="https://www.ecosia.org/search" method="get" target="_blank">
     <input id="searchInput" type="search" name="q" placeholder="Ecosia it..." required />
   </form>`;
+} else if (searchEngine == "url") {
+  searchbar.innerHTML = `
+    <form id="searchForm">
+      <input id="searchInput" type="url" placeholder="Enter URL (e.g., https://www.google.com, https://www.ecosia.com)..." required />
+    </form>`;
 } else {
   searchbar.innerHTML = `<form id="searchForm" action="https://www.startpage.com/sp/search" method="get" target="_blank">
     <input id="searchInput" type="search" name="query" placeholder="Startpage it..." required />
   </form>`;
 }
+
+const form = document.getElementById("searchForm");
+const input = document.getElementById("searchInput");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  let url = input.value.trim();
+
+  if (!/^https?:\/\//i.test(url)) {
+    url = "https://" + url;
+  }
+
+  window.open(url, "_blank");
+});
