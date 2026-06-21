@@ -13,8 +13,9 @@ const colorRight = document.getElementById("colorRight");
 
 let searchEngine = localStorage.getItem("searchEngine");
 if (searchEngine == null) {
-  searchEngine = "google";
-  engine.value = "google";
+  searchEngine = "-choose search engine-";
+  engine.value = "-choose search engine-";
+  localStorage.setItem("searchEngine", searchEngine);
 } else {
   engine.value = searchEngine;
 }

@@ -58,8 +58,15 @@ if (searchEngine == "google") {
 
     window.open(url, "_blank");
   });
-} else {
+} else if (searchEngine == "duckduckgo") {
+  searchbar.innerHTML = `<form id="searchForm" action="https://www.duckduckgo.com/search" method="get" target="_blank">
+    <input id="searchInput" type="search" name="q" placeholder="DuckDuckGo it..." required />
+  </form>`;
+} else if (searchEngine == "startpage") {
   searchbar.innerHTML = `<form id="searchForm" action="https://www.startpage.com/sp/search" method="get" target="_blank">
     <input id="searchInput" type="search" name="query" placeholder="Startpage it..." required />
   </form>`;
+} else {
+  searchbar.innerHTML = "<p>please choose search engine in settings</p>";
+  searchbar.style.textAlign = "center";
 }
