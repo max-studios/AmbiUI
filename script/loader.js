@@ -5,7 +5,6 @@ greeting = document.getElementById("pgreeting");
 
 const savedLeft = localStorage.getItem("colorLeft");
 const savedRight = localStorage.getItem("colorRight");
-
 const searchbar = document.querySelector(".searchbar");
 
 if (localStorage.getItem("name") == null) {

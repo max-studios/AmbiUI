@@ -4,10 +4,8 @@ const btnCancel = document.getElementById("btn_cancel_delete");
 const btnBack = document.getElementById("btn_back");
 const btnSave = document.getElementById("btnSave");
 const btnGitHub = document.getElementById("btn_github");
-
 const engine = document.getElementById("engine");
 const searchbar = document.querySelector(".searchbar");
-
 const colorLeft = document.getElementById("colorLeft");
 const colorRight = document.getElementById("colorRight");
 
