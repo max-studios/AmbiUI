@@ -1,2 +1,0 @@
-This document is required for the installer.
-It prevents that the installer doesnt copy wrong data.

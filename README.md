@@ -6,10 +6,10 @@ A customizable web environment.
 
 Get quick access to all the shortcuts you need, wrapped in a clean and modern design.
 
-### Installation (Windows only)
+### Installation
 
-1. Run `installer.py`. (beta)
-2. After the installation is complete, copy the file path provided by the installer.
+1. Create a local web-server.
+2. Copy adress.
 3. Open your browser settings.
 4. Navigate to the startup settings (e.g., "On startup" or "Home page").
 5. Paste the copied path as your custom startup page.
